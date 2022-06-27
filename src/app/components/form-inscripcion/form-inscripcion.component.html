@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="center form-group">
+    <h1>Formulario de Inscripcion</h1>
+    <form [formGroup]="formularioAlumno" (ngSubmit)="null">
+      <div class=" txt_field">      
+        <input type="text" class="form-control" formControlName="nombre">
+        <span></span>
+        <label>Nombre <span style="color:red"
+          *ngIf="formularioAlumno.get('nombre')?.errors?.['required']">
+         *</span> 
+         <span class="text-danger" style="font-size:19px; color:red;"
+         *ngIf="formularioAlumno.get('nombre')?.errors?.['minlength']">   Numero
+         minimo de
+         caracteres es
+         6</span> </label>      
+      </div>
+      <div class=" txt_field">      
+        <input type="text" class="form-control" formControlName="apellido">
+        <span></span>
+        <label>Apellido<span style="color:red"
+          *ngIf="formularioAlumno.get('apellido')?.errors?.['required']">
+         *</span> 
+         <span class="text-danger" style="font-size:19px; color:red;"
+         *ngIf="formularioAlumno.get('apellido')?.errors?.['minlength']">   Numero
+         minimo de
+         caracteres es
+         6</span> </label>    
+      </div>
+      <div class=" txt_field">      
+        <input type="text" class="form-control" formControlName="email">
+        <span></span>
+        <label>Email<span style="color:red"
+          *ngIf="formularioAlumno.get('email')?.errors?.['required']">
+         *</span> 
+         <span class="text-danger" style="font-size:19px; color:red;"
+         *ngIf="formularioAlumno.get('email')?.errors?.['email']"> Introducir email valido
+        </span></label>    
+      </div>
+      <div class=" txt_field">      
+        <input type="text" class="form-control" formControlName="telefono">
+        <span></span>
+        <label>Telefono<span style="color:red"
+          *ngIf="formularioAlumno.get('telefono')?.errors?.['required']">
+         *</span> 
+         <span class="text-danger" style="font-size:19px; color:red;"
+         *ngIf="formularioAlumno.get('telefono')?.errors?.['telefono']"> 
+        </span></label>    
+      </div>
+      <div class="txt_field">
+        <input type="password" class="form-control" formControlName="password">   
+        <span></span>
+        <label for="Password">Password<span style="color:red"
+          *ngIf="formularioAlumno.get('password')?.errors?.['required']">
+         *</span> 
+         <span class="text-danger" style="font-size:19px; color:red;"
+         *ngIf="formularioAlumno.get('password')?.errors?.['minlength']">   minimo de 8 caracteres</span>
+      </label>
+       
+      </div> 
+      
+      <p class="camposObligatorios"> * campos Obligatorios </p>
+
+      <div class="pass">Olvidaste la password?</div>
+
+      <input name="submit" type="submit" value="Inscribirme" [disabled]="formularioAlumno.invalid" (click)="mostrarFormulario()">
+
+      <div class="signup_link">
+        No sos Miembro ? <a href="#">Registrarse</a>
+      </div>
+    </form>
+  </div>
+</div>
+
