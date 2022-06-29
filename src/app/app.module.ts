@@ -11,7 +11,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormInscripcionComponent } from './components/form-inscripcion/form-inscripcion.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatOption } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import { TablaAlumnosComponent } from './components/tabla-alumnos/tabla-alumnos.component';

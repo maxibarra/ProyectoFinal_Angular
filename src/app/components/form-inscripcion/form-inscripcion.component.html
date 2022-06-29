@@ -1,4 +1,4 @@
-<div class="container">
+<div class="formulario">
   <div class="center form-group">
     <h1>Formulario de Inscripcion</h1>
     <form [formGroup]="formularioAlumno" (ngSubmit)="null">
@@ -47,13 +47,13 @@
         </span></label>    
       </div>
       <div class="txt_field">
-        <input type="password" class="form-control" formControlName="password">   
+        <input type="text" class="form-control" formControlName="localidad">   
         <span></span>
-        <label for="Password">Password<span style="color:red"
-          *ngIf="formularioAlumno.get('password')?.errors?.['required']">
+        <label for="Password">Localidad<span style="color:red"
+          *ngIf="formularioAlumno.get('localidad')?.errors?.['required']">
          *</span> 
          <span class="text-danger" style="font-size:19px; color:red;"
-         *ngIf="formularioAlumno.get('password')?.errors?.['minlength']">   minimo de 8 caracteres</span>
+         *ngIf="formularioAlumno.get('localidad')?.errors?.['minlength']">   minimo de 15 caracteres</span>
       </label>
        
       </div> 

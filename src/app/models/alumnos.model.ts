@@ -3,14 +3,14 @@ export class Alumnos{
   apellido: string;
   email: string;
   telefono: string;
-  password:string;
+  localidad: string
 
-  constructor(nombre: string, apellido: string, email: string,telefono: string , password: string){
+  constructor(nombre: string, apellido: string, email: string,telefono: string , localidad: string){
     this.nombre = nombre;
     this.apellido = apellido;
     this.email = email;
     this.telefono = telefono;
-    this.password = password;
+    this.localidad = localidad;
   }
 
 }

@@ -1,18 +1,17 @@
-.container{
+.formulario{
   margin: 0;
   padding: 0;
   font-family: Roboto;
   background-repeat: repeat;
   background-size: cover;
-  background:linear-gradient(160deg, #d0314c, #007bff);
+  background:linear-gradient(160deg, #007bff, #d0314c);
   height: 100vh;
- 
   overflow: hidden;
 }
 .center{
   position: absolute;
-  top: 60%;
-  left:60%;
+  top: 50%;
+  left:65%;
   transform: translate(-50%, -50%);
   width: 29vw;
   background:#fff;
