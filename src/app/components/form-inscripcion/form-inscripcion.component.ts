@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Alumnos } from 'src/app/models/alumnos.model';
+import { Subscription } from 'rxjs';
+import { AlumnoService } from 'src/app/services/alumno.service';
 
 
 @Component({
@@ -9,28 +10,40 @@ import { Alumnos } from 'src/app/models/alumnos.model';
   styleUrls: ['./form-inscripcion.component.css']
 })
 export class FormInscripcionComponent implements OnInit {
-
-  alumno: Alumnos = new Alumnos('','','','','')
-  
   formularioAlumno = new FormGroup({
-    nombre: new FormControl('',[Validators.required,Validators.minLength(6)]),
-    apellido: new FormControl('',[Validators.required,Validators.minLength(6)]),
+    nombre: new FormControl('',[Validators.required,Validators.required]),
+    apellido: new FormControl('',[Validators.required,Validators.required]),
     email: new FormControl('',[Validators.required,Validators.email]),
-    telefono: new FormControl('',[Validators.required,Validators.maxLength(13)]),
-    localidad: new FormControl('',[Validators.required,Validators.minLength(15)])
+    telefono: new FormControl('',[Validators.required,Validators.required]),
+    localidad: new FormControl('',[Validators.required,Validators.required])
   })
-  constructor() { }
+  subscriptions: Subscription = new Subscription();
 
-  ngOnInit(): void {
-    setTimeout(()=>{
-      this.formularioAlumno.get('nommbre')?.setValue(this.alumno.nombre);
-      this.formularioAlumno.get('apellido')?.setValue(this.alumno.apellido);
-      this.formularioAlumno.get('email')?.setValue(this.alumno.email);
-      this.formularioAlumno.get('localidad')?.setValue(this.alumno.localidad);
-    },1000)
+  constructor(private alumnoService: AlumnoService){ }
+  ngDestroy() { 
+    this.subscriptions.unsubscribe();
   }
 
-  mostrarFormulario(){
-   
+
+  ngOnInit(): void {
+    this.subscriptions.add(
+      this.alumnoService.getAlumnoSelect().subscribe({
+          next: (alumno) => {
+            if(alumno){
+              this.formularioAlumno.patchValue(alumno)
+            }else{
+              this.formularioAlumno.reset();
+            }
+          }, error : (error) => {
+            console.error(error)
+          }
+        })
+    )
+  }
+ 
+  addAlumno(){
+   this.alumnoService.addAlumno(this.formularioAlumno.value);
+   this.formularioAlumno.reset()
+
   }
 }
