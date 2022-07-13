@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { map, Observable, Subscription, tap } from 'rxjs';
 import { Alumno } from 'src/app/models/alumno.model';
 import { AlumnoService } from 'src/app/services/alumno.service';
@@ -23,7 +24,7 @@ export class TablaAlumnosComponent implements OnInit {
 
   susbcriptions: Subscription = new Subscription();
 
-  constructor(private alumnoService: AlumnoService) {
+  constructor(private alumnoService: AlumnoService,private router: Router) {
     this.tableDataSource$ = this.alumnoService.getAlumnos().pipe(tap((alumno) => console.log(alumno)),
                                                             map((alumno) => new MatTableDataSource<Alumno>(alumno)));
   }
@@ -51,7 +52,9 @@ export class TablaAlumnosComponent implements OnInit {
   deleteAlumno(index?: number){
     this.alumnoService.deleteAlumnoByIndex(index)
   }
-
+  irAlFormulario(){
+    this.router.navigate(['inscripciones']);
+  }
   // listaAlumnos: Alumno[] =[
   //   {nombre:"asdf", apellido:"qweerew",email:"cfasdf@sadf.com",telefono:"1231313",localidad:"sfsdfsdf"},
   //   {nombre:"asdf", apellido:"qweerew",email:"cfasdf@sadf.com",telefono:"1231313",localidad:"sfsdfsdf"},

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import {Component} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import { TablaAlumnosComponent } from './components/tabla-alumnos/tabla-alumnos.component';
+import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +25,10 @@ import { TablaAlumnosComponent } from './components/tabla-alumnos/tabla-alumnos.
     NavbarComponent,
     FormInscripcionComponent,
     TablaAlumnosComponent,
+    HomeComponent,
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -33,10 +38,8 @@ import { TablaAlumnosComponent } from './components/tabla-alumnos/tabla-alumnos.
     FormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatTableModule
-  
-
-   
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

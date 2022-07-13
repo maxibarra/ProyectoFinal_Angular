@@ -10,7 +10,9 @@ import { Alumno } from "../models/alumno.model";
 export class AlumnoService { 
 
   alumnoList : Alumno[] = [
-  ]
+    {nombre:"maxi", apellido:"qweerew",email:"cfasdf@sadf.com",telefono:"1231313",localidad:"sfsdfsdf"},
+    {nombre:"bel", apellido:"qweerew",email:"cfasdf@sadf.com",telefono:"1312434",localidad:"sfsdfsdf"},
+  ];
 
   alumnoSelected$ = new Subject <Alumno | null>();
   alumnos$ = new BehaviorSubject < Alumno[]>(this.alumnoList);

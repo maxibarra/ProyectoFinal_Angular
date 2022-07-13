@@ -1,4 +1,4 @@
-<div class="formulario">
+<div class="formulario flex flex-column">
   <div class="center form-group">
     <h1>Formulario de Inscripcion</h1>
     <form [formGroup]="formularioAlumno" (ngSubmit)="null">
@@ -53,7 +53,7 @@
           *ngIf="formularioAlumno.get('localidad')?.errors?.['required']">
          *</span> 
          <span class="text-danger" style="font-size:19px; color:red;"
-         *ngIf="formularioAlumno.get('localidad')?.errors?.['minlength']">   minimo de 15 caracteres</span>
+         *ngIf="formularioAlumno.get('localidad')?.errors?.['minlength']">   minimo de 8 caracteres</span>
       </label>
        
       </div> 
@@ -62,12 +62,15 @@
 
       <div class="pass">Olvidaste la password?</div>
 
-      <input name="submit" type="submit" value="Inscribirme" [disabled]="formularioAlumno.invalid" (click)="addAlumno()">
-
+      <input name="submit" type="submit" value="Inscribirme"  [disabled]="formularioAlumno.invalid" routerLink="alumnos" (click)="addAlumno()">
+      
       <div class="signup_link">
         No sos Miembro ? <a href="#">Registrarse</a>
       </div>
     </form>
+    <div  class="flex flex-row justify-end p-3">
+      <button mat-flat-button color="primary" (click)="verTablaAlumnos()">Ver alumnos</button>
+    </div>
   </div>
 </div>
 

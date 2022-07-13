@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AlumnoService } from 'src/app/services/alumno.service';
 
@@ -19,7 +20,7 @@ export class FormInscripcionComponent implements OnInit {
   })
   subscriptions: Subscription = new Subscription();
 
-  constructor(private alumnoService: AlumnoService){ }
+  constructor(private alumnoService: AlumnoService, private router: Router){ }
   ngDestroy() { 
     this.subscriptions.unsubscribe();
   }
@@ -45,5 +46,8 @@ export class FormInscripcionComponent implements OnInit {
    this.alumnoService.addAlumno(this.formularioAlumno.value);
    this.formularioAlumno.reset()
 
+  }
+  verTablaAlumnos(){
+    this.router.navigate(['/alumnos']);
   }
 }

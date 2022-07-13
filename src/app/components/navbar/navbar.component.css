@@ -11,6 +11,7 @@ aside{
   align-items: center;
   min-height: 100vh;
   background:#252839;
+  width: 35vh;
 }
 ul{
   position:relative;
