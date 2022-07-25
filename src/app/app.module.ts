@@ -16,7 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TablaAlumnosComponent } from './components/tabla-alumnos/tabla-alumnos.component';
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './components/home/home.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { HomeComponent } from './components/home/home.component';
     MatFormFieldModule,
     MatSelectModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
